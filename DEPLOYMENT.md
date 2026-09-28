@@ -18,8 +18,8 @@
 
 | Mục | Nội dung |
 |-----|----------|
-| Public URL | https://agent-local.up.railway.app |
-| Platform | Railway |
+| Public URL | https://day12-agent-wt1g.onrender.com |
+| Platform | Render |
 | Ngày deploy | 2026-09-28 |
 
 ## Biến Môi Trường Đã Set Trên Cloud
@@ -93,17 +93,3 @@ Dán output của các lệnh trên vào đây:
 
 ---
 
-## Nếu Dùng Phương Án Dự Phòng
-
-Không đăng ký được tài khoản cloud? Vẫn nộp được bài, nhưng CP5 tối đa 60% điểm:
-
-1. Đặt `LOCAL_FALLBACK=true` trong `.env`
-2. Chạy `docker compose up -d` rồi kiểm tra `docker compose ps`
-3. Chụp màn hình vào `screenshots/`
-4. Chạy `pytest tests/test_cp5.py -v` — bộ test sẽ tự chuyển sang kiểm tra
-   `http://localhost:8000`
-5. Ghi rõ lý do không deploy được vào phần dưới đây:
-
-```
-Chạy fallback local docker
-```
