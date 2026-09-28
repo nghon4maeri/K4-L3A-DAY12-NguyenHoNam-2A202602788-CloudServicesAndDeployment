@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Pytest
         env:
-          AGENT_API_KEY: "dummy_key_for_ci_testing"
+          AGENT_API_KEY: "dummy_key"
           PYTHONPATH: .
         run: python -m pytest -v -m "not docker" --ignore=tests/test_cp5.py
 
