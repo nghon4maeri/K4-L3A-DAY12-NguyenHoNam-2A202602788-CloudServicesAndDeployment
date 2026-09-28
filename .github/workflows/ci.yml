@@ -26,6 +26,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Pytest
+        env:
+          AGENT_API_KEY: "dummy_key_for_ci_testing"
         run: pytest -v -m "not docker" --ignore=tests/test_cp5.py
 
       - name: Build Docker Image
@@ -39,6 +41,5 @@ jobs:
     steps:
       - name: Trigger Deployment
         run: |
-          echo "Deploying to production..."
-          # Example webhook for Render/Railway deployment
-          curl -X POST -H "Authorization: Bearer ${{ secrets.DEPLOY_API_KEY }}" https://api.render.com/deploy/srv-example
+          echo "Triggering Render deployment..."
+          curl -s -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
